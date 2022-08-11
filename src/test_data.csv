@@ -1,0 +1,22 @@
+type,client,tx,amount
+Deposit,1,1,2.0
+Deposit,1,2,4.0
+Dispute,         1,3,
+Resolve,1,,
+Deposit,2,4,4.768265734534
+Gibberish,1,2,10
+Dispute,2,4,
+Deposit,2,5,9
+Withdraw,3,6,1.0
+Deposit,4,7,5
+Chargeback,4,7,
+Chargeback,1,1,
+Deposit,5,8,10
+Dispute,5,8,
+Chargeback,5,8,
+Deposit,6,9,40.2342
+Withdraw,6,10,20.4523
+Deposit,6,11,12.3541
+Deposit,7,12,50
+Dispute,7,12,
+Resolve,7,12
