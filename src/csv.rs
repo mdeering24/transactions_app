@@ -1,11 +1,20 @@
 use std::env;
 use std::fs::File;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
 use csv::Reader;
 
 pub fn import_csv_data() -> Reader<File> {
-    let reader = Reader::from_path(Path::new(&get_path_arg()));
+    let path: String = get_path_arg();
+    let mut relative: PathBuf = env::current_dir().unwrap();
+    relative.push(path.clone());
+
+    let mut reader: Result<Reader<File>, csv::Error> = Reader::from_path(relative.as_path());
+
+    if reader.is_err() {
+        reader = Reader::from_path(Path::new(&path)); //absolute
+    }
+
     match reader {
         Ok(csv) => csv,
         Err(err) => {
